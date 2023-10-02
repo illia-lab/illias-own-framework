@@ -1,0 +1,31 @@
+{
+  "name": "illias-own-framework",
+  "version": "1.0.0",
+  "description": "Learning of the TAF/JS",
+  "main": "s.js",
+  "scripts": {
+    "unit": "mocha 'specs/**/*.spec.ts' --require ts-node/register",
+    "test": "mocha 'tests/**/*.test.ts' --require ts-node/register --file ./lib/./launcher/index.ts --timeout 500000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/illia-lab/illias-own-framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/illia-lab/illias-own-framework/issues"
+  },
+  "homepage": "https://github.com/illia-lab/illias-own-framework#readme",
+  "dependencies": {
+    "@types/chai": "^4.3.6",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.8",
+    "mocha": "^10.2.0",
+    "promod": "^1.9.6",
+    "promod-system": "^2.9.2",
+    "sat-utils": "^1.12.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
