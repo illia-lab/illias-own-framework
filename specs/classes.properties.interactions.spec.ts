@@ -21,7 +21,7 @@ class Element extends Base {
     return `${`get method is executed by ${this.constructor.name}, selector:${this.selector},name:${this.name}`}`;
   }
   click() {
-    return `${`click method is by ${this.constructor.name}, selector:${this.selector},name:${this.name}`}`;
+    return `${`click method is executed by ${this.constructor.name}, selector:${this.selector},name:${this.name}`}`;
   }
 }
 
@@ -46,7 +46,7 @@ class Page extends Base {
     const data = {};
 
     for (const key of keys) {
-      data[key] = this[key].get();
+      data[key] = this[key].get(); //this = new Page('','')
     }
     return data;
   }
@@ -67,7 +67,7 @@ class Page extends Base {
 }
 
 describe('Child properties interactions', () => {
-  it.only('get class properties info based on required fields', () => {
+  it('get class properties info based on required fields', () => {
     const pageFirst = new Page('#main_page', 'Main page');
 
     const result = pageFirst.get({ fieldEmail: null });
@@ -75,15 +75,17 @@ describe('Child properties interactions', () => {
     expect(result).to.deep.equal(res);
 
     console.log(result);
-    const pageSecond = new Page('#main_page', 'Main page');
+  });
 
-    const secondResult = pageFirst.click({ fieldEmail: null });
-    const secondRes = { fieldEmail: 'click method is executed by Element, selector:#email,name:User email' };
-    // expect(result).to.deep.equal(res);
+  it('click on class properties info based on required fields', () => {
+    const pageFirst = new Page('#main_page', 'Main page');
+
+    const result = pageFirst.click({ fieldEmail: null });
+    const res = { fieldEmail: 'click method is executed by Element, selector:#email,name:User email' };
+    expect(result).to.deep.equal(res);
 
     console.log(result);
   });
-
   it('assign obj props via variables', () => {
     const obj: { [key: string]: any } = {};
     const var1 = 'myField';
